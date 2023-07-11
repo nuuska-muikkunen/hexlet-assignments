@@ -5,7 +5,7 @@ import java.util.List;
 
 // BEGIN
 public class App {
-    public static void main(String[] args){
+    public static void main(String[] args) {
         // generate letters string
         String stringForTest = "rkqodlw";
         // generate the word
@@ -29,8 +29,7 @@ public class App {
         }
         // Convert String to Array of Strings by letters
         String[] word = new String[wordToCompare.length()];
-        for(int i = 0; i < wordToCompare.length(); i++)
-        {
+        for (int i = 0; i < wordToCompare.length(); i++) {
             word[i] = String.valueOf(wordToCompare.charAt(i));
         }
         // Check if every letter in the word is available in the initial set of letters

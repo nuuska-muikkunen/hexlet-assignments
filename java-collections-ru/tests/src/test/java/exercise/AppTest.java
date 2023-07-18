@@ -23,20 +23,6 @@ class AppTest {
         assertThat(Implementations.right(listForTest, 8)).hasSize(5);
         assertThat(Implementations.right(emptyList, 3)).isEmpty();
 
-        assertThat(Implementations.wrong1(listForTest, 3)).hasSize(3);
-        assertThat(Implementations.wrong1(listForTest, 0)).hasSize(0);
-        assertThat(Implementations.wrong1(listForTest, 8)).hasSize(5);
-        assertThat(Implementations.wrong1(emptyList, 3)).isEmpty();
-
-        assertThat(Implementations.wrong2(listForTest, 3)).hasSize(3);
-        assertThat(Implementations.wrong2(listForTest, 0)).hasSize(0);
-        assertThat(Implementations.wrong2(listForTest, 8)).hasSize(5);
-        assertThat(Implementations.wrong2(emptyList, 3)).isEmpty();
-
-        assertThat(Implementations.wrong3(listForTest, 3)).hasSize(3);
-        assertThat(Implementations.wrong3(listForTest, 0)).hasSize(0);
-        assertThat(Implementations.wrong3(listForTest, 8)).hasSize(5);
-        assertThat(Implementations.wrong3(emptyList, 3)).isEmpty();
         // END
     }
 }

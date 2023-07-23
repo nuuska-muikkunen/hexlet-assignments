@@ -15,7 +15,6 @@ public class App {
                 Map.of("name", "Alice Lucas", "birthday", "1986-01-01", "gender", "female"),
                 Map.of("name", "Elsa Oscar", "birthday", "1970-03-10", "gender", "female")
         );
-
         List<String> men = Sorter.takeOldestMans(users);
         System.out.println(men); // ["John Smith", "Andrey Petrov", "Vladimir Nikolaev"]
     }

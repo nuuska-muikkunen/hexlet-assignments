@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="exercise.FileKVTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2023-09-11T13:05:26" hostname="DESKTOP-8D6A95O" time="0.376">
+  <properties/>
+  <testcase name="testFileKVLongMap()" classname="exercise.FileKVTest" time="0.334"/>
+  <testcase name="testFileShortMap()" classname="exercise.FileKVTest" time="0.019"/>
+  <testcase name="testFileKV()" classname="exercise.FileKVTest" time="0.012"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

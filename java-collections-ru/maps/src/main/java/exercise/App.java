@@ -9,6 +9,7 @@ class App {
         String sentence = "word text cat apple word map apple word";
         Map<String, Integer> countedWords = getWordCount(sentence);
         String actual = toString(countedWords);
+        System.out.println(actual);
     }
     public static Map<String, Integer> getWordCount(String sentence) {
         Map<String, Integer> countedWords = new HashMap<>();

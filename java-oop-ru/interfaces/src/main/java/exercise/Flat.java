@@ -18,6 +18,7 @@ public class Flat implements Home {
     public String toString() {
         var totalArea = getArea();
         return "Квартира площадью " + totalArea + " метров на " + floor + " этаже";
+        //better String.format
     }
     public int compareTo(Home another) {
         if (getArea() == another.getArea()) {

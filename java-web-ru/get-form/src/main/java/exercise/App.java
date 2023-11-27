@@ -19,20 +19,21 @@ public final class App {
         });
 
         // BEGIN
+
         app.get("/users", ctx -> {
-            var term = "";
-            var page = new UsersPage(USERS, term);
-            ctx.render("users/index.jte", Collections.singletonMap("page", page));
+            var term = ctx.queryParam("term");
+            if (term == null) {
+                var page = new UsersPage(USERS, term);
+                ctx.render("users/index.jte", Collections.singletonMap("page", page));
+            } else {
+                var user = USERS.stream()
+                        .filter(u -> StringUtils.startsWithIgnoreCase(u.getFirstName(), term))
+                        .toList();
+                    var page = new UsersPage(user, term);
+                    ctx.render("users/index.jte", Collections.singletonMap("page", page));
+            }
         });
 
-        app.get("/users{term}", ctx -> {
-            var term = ctx.queryParam("term");
-            var user = USERS.stream()
-                    .filter(u -> StringUtils.startsWithIgnoreCase(u.getFirstName(), term))
-                    .toList();
-            var page = new UsersPage(user, term);
-            ctx.render("users/index.jte", Collections.singletonMap("page", page));
-        });
         // END
 
         app.get("/", ctx -> {

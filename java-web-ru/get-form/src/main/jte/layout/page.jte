@@ -25,7 +25,7 @@
                     <a class="nav-link" href="/users">Users</a>
                 </li>
                 <li>
-                    <form action="/users{term}" method="get">
+                    <form action="/users" method="get">
                         <label>
                             <input type="search" required name="term" value="${page.getTerm()}"
                                    placeholder="User firstName"/>

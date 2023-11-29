@@ -3,13 +3,13 @@ content = @`<form action="/users" method="post">
     <div>
         <label>
             First Name
-            <input type="text" name="firstname" />
+            <input type="text" name="firstName" />
         </label>
     </div>
     <div>
         <label>
             Last Name
-            <input type="text" name="lastname" />
+            <input type="text" name="lastName" />
         </label>
     </div>
     <div>

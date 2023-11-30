@@ -23,8 +23,7 @@
         <div class="mb-3">
             <label class="form-label">
                 Content
-                <br>
-                <textarea cols="40" rows="3" required name="content" ></textarea>
+                <input type="text" required class="form-control" name="content" value="${page.getContent()}" />
             </label>
         </div>
         <input type="submit" value="Create" />

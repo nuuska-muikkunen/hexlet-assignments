@@ -9,17 +9,17 @@ content = @`
     <nav aria-label="Page navigation example">
         <ul class="pagination justify-content-center">
             <li class="page-item">
-                @if(page.getPageNumber() <= 0)
-                    <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+                @if(page.getPageNumber() <= 1)
+                    <a class="page-link" href="#" tabindex="-1" aria-disabled="true">No page this way</a>
                 @else
-                    <a class="page-link" href="${NamedRoutes.pagesPath()}/${page.getPageNumber() - 5L}" tabindex="-1" aria-disabled="true">Previous</a>
+                    <a class="page-link" href="/posts?page=${page.getPageNumber() - 1}" tabindex="-1" aria-disabled="true">Previous</a>
                 @endif
             </li>
             <li class="page-item">
-                @if(page.getPageNumber() + 1L >= 26)
-                    <a class="page-link" href="#">Next</a>
+                @if(page.getPageNumber() >= 5)
+                    <a class="page-link" href="#">No page this way</a>
                 @else
-                    <a class="page-link" href="${NamedRoutes.pagesPath()}/${page.getPageNumber() + 5L}">Next</a>
+                    <a class="page-link" href="/posts?page=${page.getPageNumber() + 1}" tabindex="1" aria-disabled="true">Next</a>
                 @endif
             </li>
         </ul>
@@ -38,6 +38,6 @@ content = @`
                 </tr>
             @endfor
         </table>
-        <a href="${NamedRoutes.postsPath()}">Back to posts list</a>
+        <a href="${NamedRoutes.rootPath()}">Back to root list</a>
     </nav>
 `)

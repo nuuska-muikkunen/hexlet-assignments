@@ -20,8 +20,8 @@ public final class App {
         app.get(NamedRoutes.rootPath(), RootController::index);
 
         // BEGIN
+        app.get("/posts", PostsController::paging);
         app.get("/posts/{id}", PostsController::show);
-        app.get("/posts/{page}", PostsController::page);
         // END
 
         return app;

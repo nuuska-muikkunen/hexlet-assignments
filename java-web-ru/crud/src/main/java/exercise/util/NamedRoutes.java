@@ -13,7 +13,7 @@ public class NamedRoutes {
     }
     public static String postPath(Long id) { return postPath(String.valueOf(id)); }
     public static String pagesPath() {
-        return "/posts";
+        return "/posts?page=0";
     }
     public static String pagePath(String page) { return "/posts/" + page; }
     public static String pagePath(Long page) { return postPath(String.valueOf(page)); }

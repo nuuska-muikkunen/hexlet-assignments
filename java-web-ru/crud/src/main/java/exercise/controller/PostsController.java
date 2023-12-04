@@ -19,12 +19,15 @@ public class PostsController {
         ctx.render("posts/index.jte", Collections.singletonMap("page", page));
     }
 
-    public static void page(Context ctx) {
-        var pageNumber = ctx.pathParam("page");
+    public static void paging(Context ctx) {
+        var pageNumber = ctx.queryParam("page");
+        if (pageNumber == null) {
+            pageNumber = String.valueOf(1L);
+        }
         var posts = PostRepository.getEntities();
         var singlePage = new ArrayList<Post>();
         for (int i = 0; i < 5; i++) {
-            singlePage.add(posts.get(Integer.valueOf(pageNumber) * 5 + i));
+            singlePage.add(posts.get((Integer.parseInt(pageNumber) - 1) * 5 + i));
         }
         var page = new PostsPage(singlePage, Long.valueOf(pageNumber));
         ctx.render("posts/page.jte", Collections.singletonMap("page", page));

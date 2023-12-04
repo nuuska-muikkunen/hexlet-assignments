@@ -6,7 +6,7 @@
 @template.layout.page(
 content = @`
     <h1>POSTS</h1>
-    <a href="/posts/page/0">To paging</a>
+    <a href="/posts?page=1">To paging</a>
     <table class="table table-striped">
         @for(var post : page.getPosts())
             <tr>

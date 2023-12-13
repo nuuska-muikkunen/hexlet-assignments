@@ -7,22 +7,24 @@ import exercise.repository.UsersRepository;
 import static exercise.util.Security.encrypt;
 
 import exercise.util.NamedRoutes;
-import exercise.util.Security;
 import io.javalin.http.Context;
 
 public class SessionsController {
 
     // BEGIN
     public static void rootPage(Context ctx) {
-        ctx.render("index.jte");
+        var user = ctx.sessionAttribute("currentUser");
+        var page = new MainPage(user);
+        ctx.render("index.jte", Collections.singletonMap("page", page));
     }
 
     public static void build(Context ctx) {
-        ctx.render("sessions/build.jte");
+        var page = new LoginPage("", "");
+        ctx.render("sessions/build.jte", Collections.singletonMap("page", page));
     }
 
     public static void create(Context ctx) {
-        var nickname = ctx.formParam("nickname");
+        var nickname = ctx.formParam("name");
         var password = ctx.formParam("password");
         // Проверка пароля
         if (UsersRepository.findByName(nickname) == null
@@ -33,12 +35,13 @@ public class SessionsController {
             ctx.sessionAttribute("currentUser", nickname);
             var page = new MainPage(nickname);
             ctx.render("index.jte", Collections.singletonMap("page", page));
+            ctx.redirect(NamedRoutes.rootPath());
         }
     }
 
     public static void destroy(Context ctx) {
         ctx.sessionAttribute("currentUser", null);
-        ctx.redirect("/");
+        ctx.redirect(NamedRoutes.rootPath());
     }
     // END
 }

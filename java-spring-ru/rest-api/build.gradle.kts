@@ -25,6 +25,7 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-devtools")
     implementation("net.datafaker:datafaker:2.0.1")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
+    testImplementation("org.infinispan:infinispan-commons-test:14.0.21.Final")
     testImplementation(platform("org.junit:junit-bom:5.10.0"))
     testImplementation("org.junit.jupiter:junit-jupiter:5.10.0")
     testImplementation("org.hamcrest:hamcrest:2.2")

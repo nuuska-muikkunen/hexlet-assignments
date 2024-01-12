@@ -20,22 +20,19 @@ public class PostsController {
         var result = posts.stream()
                 .filter(post -> post.getUserId() == id)
                 .toList();
-        return ResponseEntity.status(201).body(Optional.of(result));
+        return ResponseEntity.status(HttpStatus.OK).body(Optional.of(result));
     }
 
     @PostMapping("/users/{id}/posts")
-    @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<Post> create(@PathVariable Integer id,
-                                       @RequestParam String slug,
-                                       @RequestParam String title,
-                                       @RequestParam String body) {
+                                       @RequestBody Post post) {
         var newPost = new Post();
         newPost.setUserId(id);
-        newPost.setSlug(slug);
-        newPost.setTitle(title);
-        newPost.setBody(body);
+        newPost.setSlug(post.getSlug());
+        newPost.setTitle(post.getTitle());
+        newPost.setBody(post.getBody());
         posts.add(newPost);
-        return ResponseEntity.ok(newPost);
+        return ResponseEntity.status(HttpStatus.CREATED).body(newPost);
     }
 
 }
